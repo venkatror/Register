@@ -1,0 +1,137 @@
+<%= simple_form_for(@user) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table>
+<tr><td><div class="date">
+    <%= f.input :date, as: :date %>
+  </div></td></tr>
+ <tr> <td><div class="field">
+    <%= f.input :name %>
+  </div></td></tr><br>
+    <tr><td><div class="photo">
+   <%= f.input :photo,as: :file,label: "upload your recent photograph" %>
+    </div></td></tr>
+    <tr><td><div class="field">
+   
+     <%= f.input :gender ,as: :radio_buttons,:collection => %w[Male Female] %>
+    
+  </div></td></tr>
+    <tr><td><div class="field">
+    <%= f.input :address,as: :text,:size => "13x1"  %>
+  </div></td></tr>
+  <tr><td><div class="field">
+   
+  <%= f.input :telephone %>
+  </div></td>
+  <td><div class="field">
+    <%= f.input :mobile %>
+  </div></td></tr>
+ <tr> <td><div class="field">
+    <%= f.input :email ,as: :email %>
+  </div></td></tr>
+  <tr><td> <div class="field">
+    <%= f.input :course_enrolled %>
+  </div></td></tr>
+  <tr><td><div class="field">
+     <%= f.label :Educational_Qualifications,"Educational Qualifications:" %>
+   
+
+<%= f.input :education,as: :check_boxes, :collection => %w[B.Tech M.Tech Mca Mba ] %>
+
+
+
+  </div></td></tr>
+  <tr><td><div class="field">
+   <%= f.input :college_name %>
+     </div></td></tr>
+  <tr><td><div class="field">
+    <%= f.input :caddress ,as: :text ,label: "Address",:size => "13x1"  %>
+  </div></td></tr>
+  <tr><td><div class="field">
+    <%= f.input :branch ,label: "Branch / Semester"%>
+  </div></td>
+  <td><div class="field">
+    <%= f.input :course_intrested %>
+
+  </div></td></tr>
+  <tr><td><div class="field">
+    
+
+<%= f.input :contact_you, as: :check_boxes,label: "How you would like us to contact you?", :collection => %w[By-Email By-Phone By-SMS] %>
+
+  
+   
+  </div></td></tr>
+  <tr><td><div class="field">
+
+<%= f.input :program_name,label: "Program Name (as registered with Siltek):" %>
+    
+  </div></td></tr>
+  <tr><td><div class="field">
+    <%= f.input :program_incharge %>
+  </div></td></tr>
+  <tr><td><div class="field">
+    <%= f.input :program_hour,label: "Program Duration in Hours:" %>
+
+  </div></td>
+  <td><div class="field">
+    <%= f.input :program_week,label: "Program Duration in Weeks:" %>
+    
+  </div></td></tr>
+  <tr><td>
+  <div class="field">
+    <%= f.input :start,as: :date,label: "Program Start Date:",:start_year => 2012 %>
+    
+  </div></td>
+  <td> <div class="field">
+    <%= f.input :start,as: :date,label: "Program End Date:",:start_year => 2012 %></div></td></tr>
+  <tr>
+   <td> <b>Fees Details:</b></td></tr>
+  <tr><td><b>Program Costs</b></td>
+    <td><b>Amount</b></td></tr>
+  
+  <tr><td><div class="field">
+    <%= f.input :rfee,label: "Registration/Application Fee:" %>
+    
+  </div></td></tr>
+  <tr><td><div class="field">
+    <%= f.input :cfee, label: "Course Fee:" %>
+    
+  </div></td></tr>
+  <tr><td><div class="field">
+    <%= f.input :cmaterial, label: "Course Material /Other (please specify):" %>
+    
+  </div></td></tr>
+  <tr><td><div class="field">
+    <%= f.input :total_cost, label: "TOTAL PROGRAM COST:" %>
+    
+  </div></td></tr>
+  <tr><td><div class="field">
+  <%= f.input :avatar, as: :file, label: "Student Signature" %>
+      
+    </div></td>
+<td><div class="date">
+    <%= f.input :sdate,as: :date,label: "Date" %>
+    
+  </div></td></tr>
+  <tr><td><div class="field">
+    <%= f.input :image, as: :file, label: "Signature of the Representative" %>
+    </div></td>
+<td><div class="date">
+  <%= f.input :sdate ,as: :date,label: "Date" %>
+  </div></td></tr><br>
+  <tr><td><div class="actions">
+    <%= f.submit %>
+  </div></td></tr>
+</table>
+<% end %>
